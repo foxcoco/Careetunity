@@ -1,0 +1,119 @@
+var visWidth = 1000;
+var visHeight = 600;
+
+var vlSpec ={
+"$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+"width": visWidth,
+"height": visHeight,
+"data": {
+"values":[
+{"job": "Summer Student - Maintenance Helper ATU", "salary": 18.575, "skill": "mechanically", "category":"part-time"},
+{"job": "Summer - Terry Fox Athletic Facility Operations Assistant", "salary": 14, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job":"Summer - Coordinator, Camp Specialty", "salary":15, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer Student - Traffic Services Support", "salary": 14.166, "skill": "G class driver’s license", "category":"part-time"},
+{"job": "Summer - Inclusive Recreation Camp Counsellor", "salary": 14, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer - Aquatic Head Instructor/Lifeguard", "salary": 16.884, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer Student - Cash Clerk Assistant", "salary": 14, "skill": "handling cash", "category":"part-time"},
+{"job": "Summer Student - Procurement Support Analyst", "salary": 14, "skill": "bussiness major", "category":"part-time"},
+{"job": "Summer Student - Maintenance Helper IV - Roads", "salary": 14.28, "skill": "G class driver’s license", "category":"part-time"},
+{"job": "Summer Student - Technical Assistant Building Code Services", "salary": 14, "skill": "designs and technical drawings", "category":"part-time"},
+{"job": "Summer Student - GIS Assistant", "salary": 14, "skill": "ArcGIS", "category":"part-time"},
+{"job": "Summer Student - Laboratory Assistant Wastewater - Under Review", "salary": 14.166, "skill": "major Biochemistry", "category":"part-time"},
+{"job": "Summer Student - Call Centre Assistant", "salary": 14, "skill": "customer service experience", "category":"part-time"},
+{"job": "Summer Student - Information Centre Engineering Assistant 2", "salary": 16.37, "skill": "major Engineering", "category":"part-time"},
+{"job": "Summer - Inclusive Recreation Camp Director", "salary": 15, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer Student - Public Health Environmental Monitoring Assistant", "salary": 14, "skill": "Microsoft office", "category":"part-time"},
+{"job": "Summer - Wading Pool Supervisor", "salary": 15, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer Student - GIS Assistant", "salary": 14, "skill": "ArcGIS", "category":"part-time"},
+{"job": "Job Inventory - Waste Collection Operators", "salary": 26, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Job Inventory - Casual Waste Collection Operator", "salary": 16, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Job Inventory - Activities Coordinator- Long Term Care", "salary": 32, "skill": "diploma in Recreation and Leisure Studies", "category":"part-time"},
+{"job": "Child Care Cook - Job Inventory", "salary": 24, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Job Inventory - Housekeeping Attendant", "salary": 24, "skill": "Bilingual", "category":"part-time"},
+{"job": "Job Inventory: Public Service Assistant (Casual Employment)", "salary": 30, "skill": "Bilingual", "category":"part-time"},
+{"job": "Job Inventory - Registered Practical Nurse (Long Term Care)", "salary": 32, "skill": "Bilingual", "category":"part-time"},
+{"job": "Specialist, Therapeutic Recreation", "salary": 25, "skill": "Bilingual", "category":"part-time"},
+{"job": "Job Inventory - House Facilitator", "salary": 18, "skill": "Bilingual", "category":"part-time"},
+{"job": "Job Inventory - Program Leader, Recreation", "salary": 14.28, "skill": "Bilingual", "category":"part-time"},
+{"job": "Job Inventory - Instructor, Intermediate Arts", "salary": 25, "skill": "Fine Arts", "category":"part-time"},
+{"job": "Summer - Camp Counsellor", "salary": 14, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer - Inclusive Recreation Camp Director", "salary": 15, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer - Specialty Sports/Arts Counsellor", "salary": 14, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer - Wading Pool Supervisor", "salary": 15, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer - Park District Director", "salary": 15, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Job Inventory - Program Leader, Recreation", "salary": 14.28, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer - Heritage Leader", "salary": 14, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer - Beach Volleyball Support", "salary": 14, "skill": "Coaching Certification", "category":"part-time"},
+{"job": "Summer - Aquatic Head Instructor/Lifeguard", "salary": 14, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer - Children's Art Assistant (Visual Arts)", "salary": 14, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer - Specialty Sports/Arts Instructor", "salary": 14, "skill": "Coaching Certification", "category":"part-time"},
+{"job": "Summer - Inclusive Recreation Support Worker", "salary": 14, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer - Summer - Camp Assistant Coordinator", "salary": 14, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer - Summer - Aquatic Cashier", "salary": 14, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer - Aquatic Lifeguard", "salary": 15, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Summer - Instructor I, Specialty", "salary": 17, "skill": "First Aid/CPR certification", "category":"part-time"},
+{"job": "Driver, Casual", "salary": 26, "skill": "G class driver’s license", "category":"part-time"},
+{"job": "Cook", "salary": 30, "skill": "Canada Food Guide", "category":"part-time"},
+{"job": "Child Care Housekeeper", "salary": 22, "skill": "housekeeping", "category":"part-time"},
+{"job":"Client Service Agent - 40 hours","salary":29.773,"skill":"Microsoft office","category":"part-time"},
+{"job":"Food Service Attendant","salary":23.45,"skill":"1 year Food Service program","category":"part-time"},
+{"job":"Program Specialist, Arts","salary":19.986,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Personal Support Worker","salary":25.977,"skill":"Knowledge of Health Care Aide routines","category":"part-time"},
+{"job":"Job Inventory - Program Leader, Sports (Gymnastics Coach)","salary":14.28,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Specialist, Advanced Sport (Gymnastics Coach)","salary":28.282,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Summer - Aquatic Waterfront Lifeguard","salary":14.291,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Job Inventory - Casual Waste Collection Operator","salary":15.898,"skill":"''DZ'' driver's license","category":"part-time"},
+{"job":"Job Inventory - Activities Coordinator- Long Term Care","salary":31.036,"skill":"G class driver’s license","category":"part-time"},
+{"job":"Child Care Cook - Job Inventory","salary":23.45,"skill":"complete a Vulnerable Sector Check","category":"part-time"},
+{"job":"Job Inventory - Housekeeping Attendant","salary":23.45,"skill":"complete a Vulnerable Sector Check","category":"part-time"},
+{"job":"Job Inventory: Public Service Assistant","salary":29.779,"skill":"2-year Library Technician Diploma","category":"part-time"},
+{"job":"Job Inventory - Registered Practical Nurse","salary":31.036,"skill":"Registered Practical Nurse diploma","category":"part-time"},
+{"job":"Job Inventory - Registered Nurse","salary":41.71,"skill":"Registered Nurse","category":"part-time"},
+{"job":"Specialist, Therapeutic Recreation","salary":19.98,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Job Inventory - House Facilitator","salary":17.391,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Job Inventory - Instructor, Intermediate Arts","salary":19.986,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Service Representative I","salary":14.28,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Job Inventory - Lifeguard","salary":15.414,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Job Inventory - Instructor, Inclusive Recreation","salary":19.986,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Job Inventory - Youth and Child Care Worker, Inclusive Recreation","salary":17.391,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Summer - Park Administration Coordinator","salary":14,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Summer - Aquatic Supervisor","salary":16.884,"skill":"500 hours of Life guarding","category":"part-time"},
+{"job":"Summer - Arts Specialty Instructor 1","salary":15,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Summer - Inclusive Recreation Assistant Camp Director","salary":15,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Summer - Aquatic Beach Operations Support ","salary":14,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Summer - Camp Coordinator","salary":15,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Summer - Specialty Senior Sports/Arts Instructor","salary":14,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Summer - Wading Pool Attendant","salary":14,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Summer - Terry Fox Athletic Facility Operations Assistant","salary":14,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Summer - Coordinator, Camp Specialty","salary":15,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Summer - Camp Senior Counsellor","salary":14,"skill":"First Aid/CPR certification","category":"part-time"},
+{"job":"Position: Summer - Camp Assistant Coordinator","salary":14,"skill":"First Aid/CPR certification","category":"part-time"}
+]
+},
+"selection": {
+    "paintbrush": {
+      "type": "multi", "on": "mouseover",
+      "nearest": true
+    }
+  },
+"mark": {"type":"circle", "size":800},
+"encoding": {
+"x": {
+  "field": "skill",
+  "type": "ordinal",
+},
+"y": {
+  "field": "salary", "type": "quantitative",
+  "scale": {"domain": [0, 50]}
+},
+"size": {
+      "condition": {"selection": "paintbrush", "value": 1500},
+      "value": 500
+    },
+
+
+
+
+}
+}
+vegaEmbed('#vis', vlSpec);
