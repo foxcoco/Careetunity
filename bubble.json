@@ -106,6 +106,13 @@ var vlSpec ={
   "field": "salary", "type": "quantitative",
   "scale": {"domain": [0, 50]}
 },
+    
+"tooltip": [
+  {"field": "job", "type": "ordinal"},
+  {"field": "salary", "type": "quantitative"},
+
+],
+
 "size": {
       "condition": {"selection": "paintbrush", "value": 1500},
       "value": 500
