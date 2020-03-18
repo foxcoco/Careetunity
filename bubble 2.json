@@ -1,0 +1,94 @@
+var vlSpec ={"$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+
+"title": "Salary",
+  "data": {
+"values":[{"job":"Information Technology Business Analyst","salary":75912.20,"skill":"business applications and systems analysis","category":"full-time","Type":"Business"},
+{"job":"Manager, Employment and Social Services","salary":118527.50,"skill":"human services activities.","category":"full-time","Type":"Communicating"},
+{"job":"Rail Planning and Scheduling Specialist","salary":63920.22,"skill":"G class driver’s license","category":"full-time","Type":"Traffic"},
+{"job":"Law Clerk","salary":65691.08,"skill":"Legal Assistant course","category":"full-time","Type":"Law"},
+{"job":"Public Service Supervisor","salary":61102.86,"skill":"Library Technician Diploma","category":"full-time","Type":"Communicating"},
+{"job":"Supervising Librarian","salary":68004.30,"skill":"Masters degree in library information sciences","category":"full-time","Type":"Communicating"},
+{"job":"Booking Service Clerk","salary": 49584.08,"skill":"accounting and financial","category":"full-time","Type":"Business"},
+{"job":"Officer, Corporate Media Relations","salary":70947.24,"skill":"social media (channels, monitoring, responding)","category":"full-time","Type":"Media"},
+{"job":"Fleet Maintenance Service Coordinator","salary":64554.88,"skill":"G class driver’s license","category":"full-time","Type":"Traffic"},
+{"job":"Building Official II","salary":70288.40,"skill":"Certified Building Code Official","category":"full-time","Type":"Production"},
+{"job":"Coordinator , Communications Information (Customer Service)","salary":55215.16,"skill":"Criminal Record Check","category":"full-time","Type":"Communicating"},
+{"job":"change Management Coordinator","salary":75912.20,"skill":"structured change management methodologies","category":"full-time","Type":"Communicating"},
+{"job":"Project Manager, Transit Fleet and Facility Projects","salary":67112.50,"skill":"provision of public transit in Ottawa","category":"full-time","Type":"Traffic"},
+{"job":"Supervising Librarian","salary":68004.30 ,"skill":"Masters degree in library information sciences ","category":"full-time","Type":"Communicating"},
+{"job":"Senior Analyst, Information Security","salary": 82815.46,"skill":"Criminal Record Check.","category":"full-time","Type":"Production"},
+{"job":"Accessibility Project Lead","salary":75912.20,"skill":"Project management methodologies","category":"full-time","Type":"Production"},
+{"job":"Contracting Officer","salary":66308.06,"skill":"Microsoft Office","category":"full-time","Type":"Production"}
+]
+},
+  "vconcat": [
+    {
+
+      "encoding": {
+        "color": {
+          "condition": {
+            "title": "Type",
+            "field": "Type",
+            "scale": {
+               "domain": ["Production","Traffic","Business","Law","Communicating","Media"],
+              "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd","#e39d9f"]
+            },
+            "selection": "brush",
+            "type": "nominal"
+          },
+          "value": "lightgray"
+        },
+
+        "x": {
+          "axis": {"title": "skill"},
+          "field": "skill",
+          "type": "ordinal"
+        },
+        "y": {
+          "axis": {"title": "salary"},
+          "field": "salary",
+          "scale": {"domain": [48000, 122000]},
+          "type": "quantitative"
+        },
+        "tooltip": [
+  {"field": "job", "type": "ordinal"},
+  {"field": "salary", "type": "quantitative"}
+
+]
+
+      },
+
+      "width": 750,
+      "height": 300,
+      "mark": {"type":"circle", "size":400},
+      "selection": {"brush": {"encodings": ["x"], "type": "interval"}},
+      "transform": [{"filter": {"selection": "click"}}]
+    },
+
+    {
+      "encoding": {
+        "color": {
+          "condition": {
+            "field": "Type",
+            "scale": {
+              "domain": ["Production","Traffic","Business","Law","Communicating"],
+              "range": ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"]
+            },
+            "selection": "click",
+            "type": "nominal"
+          },
+          "value": "lightgray"
+        },
+        "x": {"field": "salary", "type": "quantitative"},
+        "y": {"title": "Type", "field": "Type", "type": "ordinal"}
+      },
+
+      "width": 800,
+
+      "mark": "bar",
+      "selection": {"click": {"encodings": ["color"], "type": "multi"}},
+      "transform": [{"filter": {"selection": "brush"}}]
+    }
+  ]
+}
+vegaEmbed('#vis', vlSpec);
