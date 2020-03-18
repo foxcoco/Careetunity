@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://d3js.org/d3.v2.min.js?2.9.3"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="node.css">
+	
+<style>
+
+.link {
+  stroke: #9ecae1;
+}
+
+.node circle{
+stroke:#fff;
+stroke-width:0.5px;
+fill:#DE8876;
+}
+
+</style>
+	
+<title>Node-linked Diagram</title>
+</head>
+	
+<header id="header">
+	<div id="container">
+ 		<div id="image" style="display:inline;">
+        	<img src="logo.png" alt="logo"/>
+		</div>
+		
+		<div id="texts" style="display:inline; ">
+		</div>
+	
+		<img id="1" src="search.png" alt="search" align="right" style="width:440px;height:100px;">
+	</div>
+	</header>
+
+<body>
+	<div class="title">
+		
+		<h1>Node-linked Diagram</h1>
+	
+	</div>
+</body>
+	<script>
+
+var width = 1120,
+    height = 630
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var div = d3.select("body").append("div")	
+    .attr("class", "tooltip")				
+    .style("opacity", 0);
+
+
+var force = d3.layout.force()
+    .gravity(.15)
+    .distance(50)
+    .charge(-70)
+    .size([width, height]);
+
+d3.json("node.json", function(json) {
+  force
+      .nodes(json.nodes)
+      .links(json.links)
+      .start();
+
+  var link = svg.selectAll(".link")
+      .data(json.links)
+      .enter().append("line")
+      .attr("class", "link")
+      .style("stroke-width", function(d) { return Math.sqrt(d.weight); });
+
+  var node = svg.selectAll(".node")
+      .data(json.nodes)
+      .enter().append("g")
+      .attr("class", "node")
+      .call(force.drag);
+
+  node.append("circle")
+      .attr("r","10");
+	
+  svg.selectAll(".node")	
+        .on("mouseover", function(d) {		
+            div.transition()		
+                .duration(200)
+	  			.style("stroke", "black")
+                .style("opacity", 1.0);	
+	  
+            div	.html(d.name)
+                .style("left", (d3.mouse(this)[0]+790) + "px")		
+                .style("top", (d3.mouse(this)[1]+370) + "px");	
+            })	
+	
+        .on("mouseout", function(d) {		
+            div.transition()		
+                .duration(500)		
+                .style("opacity", 0);	
+        });
+  
+  force.on("tick", function() {
+    link.attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+  });
+});
+
+	</script>
+
+</html>
