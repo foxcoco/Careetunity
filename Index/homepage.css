@@ -1,0 +1,38 @@
+header{
+background-color:rgb(139,197,231);
+}
+h1
+{
+    font-family:"Acumin Variable Concept";
+    font-size: 55px;
+    text-align: center;
+}
+
+H2{
+    font-family:"Acumin Variable Concept";
+    font-size: 40px;
+    color:rgb(139,197,231);
+  }
+
+P1,P2{
+    font-size: 30px;
+}
+p3{
+  font-size: 22px;
+}
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
