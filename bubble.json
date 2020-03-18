@@ -1,10 +1,6 @@
-var visWidth = 1000;
-var visHeight = 600;
-
 var vlSpec ={
 "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-"width": visWidth,
-"height": visHeight,
+
 "data": {
 "values":[
 {"job": "Summer Student - Maintenance Helper ATU", "salary": 18.575, "skill": "mechanically", "category":"part-time"},
@@ -90,37 +86,55 @@ var vlSpec ={
 {"job":"Position: Summer - Camp Assistant Coordinator","salary":14,"skill":"First Aid/CPR certification","category":"part-time"}
 ]
 },
-"selection": {
+"vconcat": [{
+    "width": 800,
+
+    "selection": {
     "paintbrush": {
       "type": "multi", "on": "mouseover",
       "nearest": true
     }
   },
-"mark": {"type":"circle", "size":800},
-"encoding": {
-"x": {
-  "field": "skill",
-  "type": "ordinal",
-},
-"y": {
-  "field": "salary", "type": "quantitative",
-  "scale": {"domain": [0, 50]}
-},
-    
-"tooltip": [
+"mark": {"type":"circle", "size":400},
+    "encoding": {
+      "x": {
+        "field": "skill",
+        "type": "ordinal",
+        "scale": {"domain": {"selection": "brush"}},
+        "axis": {"title": ""}
+      },
+      "y": {"field": "salary", "type": "quantitative"},
+      "tooltip": [
   {"field": "job", "type": "ordinal"},
-  {"field": "salary", "type": "quantitative"},
+  {"field": "salary", "type": "quantitative"}
 
 ],
-
 "size": {
       "condition": {"selection": "paintbrush", "value": 1500},
       "value": 500
+    }
+    }
+
+  }, {
+    "width": 800,
+    "height": 60,
+    "mark": "area",
+    "selection": {
+      "brush": {"type": "interval", "encodings": ["x"]}
     },
+    "encoding": {
+      "x": {
+        "field": "skill",
+        "type": "ordinal"
+      },
+      "y": {
+        "field": "salary",
+        "type": "quantitative",
+        "axis": {"tickCount": 3, "grid": false}
+      }
 
-
-
-
-}
+    }
+  }]
 }
 vegaEmbed('#vis', vlSpec);
+
